@@ -14,25 +14,6 @@ RUN sed -i -- 's/tensorflow>=2.0.0/tensorflow-gpu>=2.0.0/g' requirements.txt \
 && python setup.py clean --all install
 
 COPY openimages/* ./samples/openimages/
-COPY mini/train/* /root/fiftyone/open-images-v6/train/
-WORKDIR /root/fiftyone/open-images-v6
-RUN mkdir ./train/data \
-&& mv ./train/Adhesive\ tape/ ./train/data/ \
-&& mv ./train/Axe/ ./train/data/
-RUN mkdir ./train/labels/ \
-&& mv ./train/masks/ ./train/labels/ \
-&& mv ./train/segmentations.csv ./train/labels/
-RUN mkdir ./train/metadata/ \
-&& mv ./train/classes.csv ./train/metadata/
-COPY mini/validation/* /root/fiftyone/open-images-v6/validation/
-RUN mkdir ./validation/data \
-&& mv ./validation/Adhesive\ tape/ ./validation/data/ \
-&& mv ./validation/Axe/ ./validation/data/
-RUN mkdir ./validation/labels/ \
-&& mv ./validation/masks/ ./validation/labels/ \
-&& mv ./validation/segmentations.csv ./validation/labels/
-RUN mkdir ./validation/metadata/ \
-&& mv ./validation/classes.csv ./validation/metadata/
 
 # #### CLONE COCO_API AND INSTALL
 # RUN git clone https://github.com/waleedka/coco.git /root/coco
