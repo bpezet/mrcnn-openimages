@@ -1,0 +1,4 @@
+docker run -it --rm -v openimages-data:/root/ fiftyone-oid-downloader:1.0
+docker run --gpus all -it --rm -v openimages-data:/root/data coco/test-train/mrcnn-gpu:1.0
+docker run -it -p 8888:8888 -v openimages-data:/save coco/test-train/mrcnn-gpu-jupyter:1.0
+docker run -it -p 8888:8888 -v mrcnn-models:/save -v openimages-data:/root/data coco/test-train/mrcnn-gpu-jupyter:1.0
