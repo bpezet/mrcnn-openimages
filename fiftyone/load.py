@@ -12,26 +12,44 @@ import os
 
 # session = fo.launch_app(dataset)
 
-classe = "Axe"
-split = "train"
+classes = ["Adhesive tape",
+	   "Axe",
+	   "Boot",
+	   "Clothing",
+	   "Computer keyboard",
+	   "Computer mouse",
+	   "Corded phone",
+	   "Dagger",
+	   "Door handle",
+	   "Drill (Tool)"]
+splits = ["train","validation"]
 
-dataset = foz.load_zoo_dataset(
-    "open-images-v6",
-    split=split,
-    label_types=["segmentations"],
-    classes = [classe],
-    max_samples=200,
-    seed=51,
-    shuffle=True,
-)
+nb_train = 200
+nb_val = nb_train*20//100
 
-# session = fo.launch_app(dataset)
+for split in splits:
+	if split == "train":
+		samples = nb_train
+	else:
+		samples = nb_val
+	for classe in classes:
+		dataset = foz.load_zoo_dataset(
+		    "open-images-v6",
+		    split=split,
+		    label_types=["segmentations"],
+		    classes = [classe],
+		    max_samples=samples,
+		    seed=51,
+		    shuffle=True,
+		)
 
-# session.wait()
-data = os.path.expanduser('~/fiftyone/open-images-v6/')
-data = os.path.join(data, split, 'data')
-data_class = os.path.join(data, classe)
-os.mkdir(data_class)
-for img in next(os.walk(data))[-1]:
-	if img.endswith('.jpg'):
-		os.rename(os.path.join(data, img), os.path.join(data_class, img))
+		# session = fo.launch_app(dataset)
+
+		# session.wait()
+		data = os.path.expanduser('~/fiftyone/open-images-v6/')
+		data = os.path.join(data, split, 'data')
+		data_class = os.path.join(data, classe)
+		os.mkdir(data_class)
+		for img in next(os.walk(data))[-1]:
+			if img.endswith('.jpg'):
+				os.rename(os.path.join(data, img), os.path.join(data_class, img))
