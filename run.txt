@@ -2,3 +2,11 @@ docker run -it --rm -v openimages-data:/root/ fiftyone-oid-downloader:1.0
 docker run --gpus all -it --rm -v openimages-data:/root/data coco/test-train/mrcnn-gpu:1.0
 docker run -it -p 8888:8888 -v openimages-data:/save coco/test-train/mrcnn-gpu-jupyter:1.0
 docker run -it -p 8888:8888 -v mrcnn-models:/save -v openimages-data:/root/data coco/test-train/mrcnn-gpu-jupyter:1.0
+
+docker run --gpus all -it --rm -v openimages-data:/root/data mrcnn-gpu:1.0
+python openimages_multi_classes.py train --dataset=/root/data/fiftyone/open-images-v6/ --model=coco
+CTRL + z : stop
+bg : run in background
+CTRL + p then CTRL + q : detach container
+docker ps : list containers
+docker attach ID : get in container
