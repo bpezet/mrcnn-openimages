@@ -10,6 +10,9 @@ RUN apt-get update \
 RUN git clone https://github.com/akTwelve/Mask_RCNN.git /root/Mask_RCNN
 WORKDIR /root/Mask_RCNN/
 RUN sed -i -- 's/tensorflow>=2.0.0/tensorflow-gpu>=2.0.0/g' requirements.txt \
+# Do not use multi_processing
+&& sed -i -- 's/workers=workers,/workers=workers/g' mrcnn/model.py \
+&& sed -i -- 's/use_multiprocessing=workers > 1,/#use_multiprocessing=workers > 1,/g' mrcnn/model.py \
 && pip install -r requirements.txt \
 && python setup.py clean --all install
 
