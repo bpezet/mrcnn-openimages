@@ -200,19 +200,17 @@ class OpenimagesDataset(utils.Dataset):
         """
         info = self.image_info[image_id]
         image_name = info['id']
-        # Train or validation dataset?
-        if 'train' in info['path']:
-            MASK_DIR = os.path.expanduser('~/fiftyone/open-images-v6/train/labels/masks')
-        else:
-            MASK_DIR = os.path.expanduser('~/fiftyone/open-images-v6/validation/labels/masks')
+        image_path = info['path']
+        MASK_DIR = os.path.join(
+                                os.path.dirname(
+                                os.path.dirname(
+                                os.path.dirname(image_path))), 'labels/masks')
+        
         segmentation = open(os.path.join(os.path.dirname(MASK_DIR), 'segmentations.csv'))
         segmentation_reader = csv.reader(segmentation)
 
         # Get mask directory from image path and first letter of id
-        mask_dir = os.path.join(
-                                os.path.dirname(
-                                os.path.dirname(
-                                os.path.dirname(info['path']))), "labels/masks", image_name[0].upper())
+        mask_dir = os.path.join(MASK_DIR, image_name[0].upper())
         
         # class_metadata = open(os.path.join(
         #                             os.path.dirname(
