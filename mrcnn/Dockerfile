@@ -18,6 +18,8 @@ RUN sed -i -- 's/tensorflow>=2.0.0/tensorflow-gpu>=2.0.0/g' requirements.txt \
 
 COPY openimages/* ./samples/openimages/
 
+WORKDIR /root/Mask_RCNN/samples/openimages/
+
 # #### CLONE COCO_API AND INSTALL
 # RUN git clone https://github.com/waleedka/coco.git /root/coco
 # WORKDIR /root/coco/PythonAPI/
