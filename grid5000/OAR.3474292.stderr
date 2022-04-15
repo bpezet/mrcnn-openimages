@@ -1,0 +1,7 @@
+/var/lib/oar/.batch_job_bashrc: line 5: /home/bpezet/.bashrc: No such file or directory
+/var/lib/oar/.batch_job_bashrc: line 5: /home/bpezet/.bashrc: No such file or directory
+./script.sh: line 15: g5k-setup-nvidia-docker: command not found
+./script.sh: line 18: docker: command not found
+./script.sh: line 21: docker: command not found
+./script.sh: line 37: docker: command not found
+./script.sh: line 40: docker: command not found
