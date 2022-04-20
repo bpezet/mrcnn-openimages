@@ -1,6 +1,16 @@
 # Grid5000
 
 ## Procedure
+---
+### Résolution de l'erreur en mode passif
+1) Créer un fichier `.bashrc` à la racine du cluster (`$HOME/.bashrc`)
+2) Écrire dans ce fichier : 
+```sh
+export PATH=/grid5000/code/bin:$PATH
+```
+3) Redémarrer le shell sur ce fichier : `source $HOME/.bashrc`
+---
+
 1) Cloner le dépôt et aller dans le dossier `mrcnn/`
 ```
 git clone https://github.com/bpezet/mrcnn-openimages.git
@@ -32,8 +42,14 @@ cd ../grid5000/
 oarsub -p "gpu_count > 0" -q production ./script.sh
 ```
 
-**Remarque** : C'est ici que j'obtiens des erreur (cf `OAR.JOB_ID.stderr`)
-
+**Remarque** : Pour plus de précisions dans les paramètres :
+- une option `-i` est disponible pour préciser **le nombre d'images par CPU**
+- une option `-s` est disponible pour préciser **le nombre de STEPS par epoch**
+- une option `-e` est disponible pour préciser **le nombre d'epochs**
+- (ne pas oublier le walltime)
+```sh
+oarsub -p "gpu_count > 0" -l walltime=60:0:0 -q production "./script.sh -i 1 -s 100 -e 20"
+```
 ---
 ## MEMO
 
