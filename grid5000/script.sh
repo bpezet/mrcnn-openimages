@@ -15,7 +15,7 @@ done
 g5k-setup-nvidia-docker -t
 
 # Restore docker image
-docker load -i ~/objet_detetction/mrcnn-gpu.tar
+docker load -i ./mrcnn-gpu.tar
 
 # Run docker container detached
 docker run -d --name mrcnn-container --gpus all -it --rm \

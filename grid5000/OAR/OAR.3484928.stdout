@@ -1,0 +1,830 @@
+/grid5000/code/bin/g5k-setup-docker --tmp
+sudo-g5k
+distribution=$(echo )
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add -
+. /etc/os-release; curl -s -L https://nvidia.github.io/nvidia-docker/$ID$VERSION_ID/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo sed -i 's|^ldconfig.*|ldconfig = "/sbin/ldconfig"|' /etc/nvidia-container-runtime/config.toml
+sudo systemctl restart docker
+sudo chmod o+rw /var/run/docker.sock
+Loaded image: mrcnn-gpu:1.0
+9ba671de56ff8e922f92779b9bb4c2f5adbb1c36f1a891230984847d59c9e24f
+Command:  train
+Model:  coco
+Dataset:  /root/data/
+Year:  2014
+Logs:  /root/Mask_RCNN/logs
+Auto Download:  False
+
+Configurations:
+BACKBONE                       resnet101
+BACKBONE_STRIDES               [4, 8, 16, 32, 64]
+BATCH_SIZE                     1
+BBOX_STD_DEV                   [0.1 0.1 0.2 0.2]
+COMPUTE_BACKBONE_SHAPE         None
+DETECTION_MAX_INSTANCES        100
+DETECTION_MIN_CONFIDENCE       0.7
+DETECTION_NMS_THRESHOLD        0.3
+FPN_CLASSIF_FC_LAYERS_SIZE     1024
+GPU_COUNT                      1
+GRADIENT_CLIP_NORM             5.0
+IMAGES_PER_GPU                 1
+IMAGE_CHANNEL_COUNT            3
+IMAGE_MAX_DIM                  1024
+IMAGE_META_SIZE                23
+IMAGE_MIN_DIM                  800
+IMAGE_MIN_SCALE                0
+IMAGE_RESIZE_MODE              square
+IMAGE_SHAPE                    [1024 1024    3]
+LEARNING_MOMENTUM              0.9
+LEARNING_RATE                  0.001
+LOSS_WEIGHTS                   {'rpn_class_loss': 1.0, 'rpn_bbox_loss': 1.0, 'mrcnn_class_loss': 1.0, 'mrcnn_bbox_loss': 1.0, 'mrcnn_mask_loss': 1.0}
+MASK_POOL_SIZE                 14
+MASK_SHAPE                     [28, 28]
+MAX_GT_INSTANCES               100
+MEAN_PIXEL                     [123.7 116.8 103.9]
+MINI_MASK_SHAPE                (56, 56)
+NAME                           openimages
+NUM_CLASSES                    11
+POOL_SIZE                      7
+POST_NMS_ROIS_INFERENCE        1000
+POST_NMS_ROIS_TRAINING         2000
+PRE_NMS_LIMIT                  6000
+ROI_POSITIVE_RATIO             0.33
+RPN_ANCHOR_RATIOS              [0.5, 1, 2]
+RPN_ANCHOR_SCALES              (32, 64, 128, 256, 512)
+RPN_ANCHOR_STRIDE              1
+RPN_BBOX_STD_DEV               [0.1 0.1 0.2 0.2]
+RPN_NMS_THRESHOLD              0.7
+RPN_TRAIN_ANCHORS_PER_IMAGE    256
+STEPS_PER_EPOCH                2
+TOP_DOWN_PYRAMID_SIZE          256
+TRAIN_BN                       False
+TRAIN_ROIS_PER_IMAGE           200
+USE_MINI_MASK                  True
+USE_RPN_ROIS                   True
+VALIDATION_STEPS               50
+WEIGHT_DECAY                   0.0001
+
+
+Downloading pretrained model to /root/Mask_RCNN/mask_rcnn_coco.h5 ...
+... done downloading pretrained model!
+Loading weights  /root/Mask_RCNN/mask_rcnn_coco.h5
+Training network heads
+
+Starting at epoch 0. LR=0.001
+
+Checkpoint Path: /root/Mask_RCNN/logs/openimages20220420T1508/mask_rcnn_openimages_{epoch:04d}.h5
+Selecting layers to train
+fpn_c5p5               (Conv2D)
+fpn_c4p4               (Conv2D)
+fpn_c3p3               (Conv2D)
+fpn_c2p2               (Conv2D)
+fpn_p5                 (Conv2D)
+fpn_p2                 (Conv2D)
+fpn_p3                 (Conv2D)
+fpn_p4                 (Conv2D)
+In model:  rpn_model
+    rpn_conv_shared        (Conv2D)
+    rpn_class_raw          (Conv2D)
+    rpn_bbox_pred          (Conv2D)
+mrcnn_mask_conv1       (TimeDistributed)
+mrcnn_mask_bn1         (TimeDistributed)
+mrcnn_mask_conv2       (TimeDistributed)
+mrcnn_mask_bn2         (TimeDistributed)
+mrcnn_class_conv1      (TimeDistributed)
+mrcnn_class_bn1        (TimeDistributed)
+mrcnn_mask_conv3       (TimeDistributed)
+mrcnn_mask_bn3         (TimeDistributed)
+mrcnn_class_conv2      (TimeDistributed)
+mrcnn_class_bn2        (TimeDistributed)
+mrcnn_mask_conv4       (TimeDistributed)
+mrcnn_mask_bn4         (TimeDistributed)
+mrcnn_bbox_fc          (TimeDistributed)
+mrcnn_mask_deconv      (TimeDistributed)
+mrcnn_class_logits     (TimeDistributed)
+mrcnn_mask             (TimeDistributed)
+Epoch 1/2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+1/2 [==============>...............] - ETA: 0s - loss: 11.9865 - rpn_class_loss: 0.0431 - rpn_bbox_loss: 4.6483 - mrcnn_class_loss: 7.2950 - mrcnn_bbox_loss: 0.0000e+00 - mrcnn_mask_loss: 0.0000e+00True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+2
+2
+True
+3
+3
+2/2 [==============================] - ETA: 0s - loss: 60.3550 - rpn_class_loss: 5.3785 - rpn_bbox_loss: 48.2610 - mrcnn_class_loss: 6.7155 - mrcnn_bbox_loss: 0.0000e+00 - mrcnn_mask_loss: 0.0000e+00True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+3
+3
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+3
+3
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+2/2 [==============================] - 435s 217s/step - loss: 60.3550 - rpn_class_loss: 5.3785 - rpn_bbox_loss: 48.2610 - mrcnn_class_loss: 6.7155 - mrcnn_bbox_loss: 0.0000e+00 - mrcnn_mask_loss: 0.0000e+00 - val_loss: 11.9605 - val_rpn_class_loss: 0.7112 - val_rpn_bbox_loss: 7.0569 - val_mrcnn_class_loss: 3.0591 - val_mrcnn_bbox_loss: 0.6208 - val_mrcnn_mask_loss: 0.5126
+Epoch 2/2
+1/2 [==============>...............] - ETA: 0s - loss: 11.3977 - rpn_class_loss: 0.2222 - rpn_bbox_loss: 4.8322 - mrcnn_class_loss: 3.2632 - mrcnn_bbox_loss: 2.1211 - mrcnn_mask_loss: 0.95892/2 [==============================] - ETA: 0s - loss: 7.9390 - rpn_class_loss: 0.1243 - rpn_bbox_loss: 2.6691 - mrcnn_class_loss: 2.1269 - mrcnn_bbox_loss: 1.6842 - mrcnn_mask_loss: 1.3346 True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+2
+2
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+5
+5
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+3
+3
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+2
+2
+True
+2
+2
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+1
+1
+True
+7
+7
+True
+2
+2
+2/2 [==============================] - 56s 28s/step - loss: 7.9390 - rpn_class_loss: 0.1243 - rpn_bbox_loss: 2.6691 - mrcnn_class_loss: 2.1269 - mrcnn_bbox_loss: 1.6842 - mrcnn_mask_loss: 1.3346 - val_loss: 5.0647 - val_rpn_class_loss: 0.3224 - val_rpn_bbox_loss: 3.5706 - val_mrcnn_class_loss: 0.0856 - val_mrcnn_bbox_loss: 0.7235 - val_mrcnn_mask_loss: 0.3627

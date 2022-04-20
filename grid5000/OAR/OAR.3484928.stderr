@@ -1,0 +1,177 @@
++ sudo -E sh -c apt-get update -qq >/dev/null
++ sudo -E sh -c DEBIAN_FRONTEND=noninteractive apt-get install -y -qq apt-transport-https ca-certificates curl >/dev/null
++ sudo -E sh -c curl -fsSL "https://download.docker.com/linux/debian/gpg" | gpg --dearmor --yes -o /usr/share/keyrings/docker-archive-keyring.gpg
++ sudo -E sh -c echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable" > /etc/apt/sources.list.d/docker.list
++ sudo -E sh -c apt-get update -qq >/dev/null
++ sudo -E sh -c DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends  docker-ce-cli docker-scan-plugin docker-ce >/dev/null
++ version_gte 20.10
++ [ -z  ]
++ return 0
++ sudo -E sh -c DEBIAN_FRONTEND=noninteractive apt-get install -y -qq docker-ce-rootless-extras >/dev/null
++ sudo -E sh -c docker version
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/resource_variable_ops.py:1666: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+2022-04-20 15:08:39.695457: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2022-04-20 15:08:39.729690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: GeForce GTX 980 computeCapability: 5.2
+coreClock: 1.253GHz coreCount: 16 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 208.91GiB/s
+2022-04-20 15:08:39.730547: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties: 
+pciBusID: 0000:82:00.0 name: GeForce GTX 980 computeCapability: 5.2
+coreClock: 1.253GHz coreCount: 16 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 208.91GiB/s
+2022-04-20 15:08:39.730849: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2022-04-20 15:08:39.732539: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2022-04-20 15:08:39.734238: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2022-04-20 15:08:39.734563: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2022-04-20 15:08:39.736156: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2022-04-20 15:08:39.737027: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2022-04-20 15:08:39.740545: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2022-04-20 15:08:39.743785: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1
+2022-04-20 15:08:52.697517: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2022-04-20 15:08:52.725152: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2399880000 Hz
+2022-04-20 15:08:52.728502: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7efd70000b20 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-20 15:08:52.728524: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-20 15:08:52.962467: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x82cdc50 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-04-20 15:08:52.962526: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 980, Compute Capability 5.2
+2022-04-20 15:08:52.962545: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): GeForce GTX 980, Compute Capability 5.2
+2022-04-20 15:08:52.963573: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: GeForce GTX 980 computeCapability: 5.2
+coreClock: 1.253GHz coreCount: 16 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 208.91GiB/s
+2022-04-20 15:08:52.964139: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties: 
+pciBusID: 0000:82:00.0 name: GeForce GTX 980 computeCapability: 5.2
+coreClock: 1.253GHz coreCount: 16 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 208.91GiB/s
+2022-04-20 15:08:52.964271: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2022-04-20 15:08:52.964304: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2022-04-20 15:08:52.964348: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2022-04-20 15:08:52.964385: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2022-04-20 15:08:52.964426: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2022-04-20 15:08:52.964463: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2022-04-20 15:08:52.964507: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2022-04-20 15:08:52.966380: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1
+2022-04-20 15:08:52.966462: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2022-04-20 15:08:52.967899: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-04-20 15:08:52.967917: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 1 
+2022-04-20 15:08:52.967938: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N N 
+2022-04-20 15:08:52.967961: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 1:   N N 
+2022-04-20 15:08:52.969444: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3672 MB memory) -> physical GPU (device: 0, name: GeForce GTX 980, pci bus id: 0000:03:00.0, compute capability: 5.2)
+2022-04-20 15:08:52.970379: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 3672 MB memory) -> physical GPU (device: 1, name: GeForce GTX 980, pci bus id: 0000:82:00.0, compute capability: 5.2)
+2022-04-20 15:08:58.489356: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2022-04-20 15:08:58.489438: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1363] Profiler found 2 GPUs
+2022-04-20 15:08:58.490816: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcupti.so.10.1
+2022-04-20 15:08:58.591253: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1408] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2022-04-20 15:08:58.591904: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1447] function cupti_interface_->ActivityRegisterCallbacks( AllocCuptiActivityBuffer, FreeCuptiActivityBuffer)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2022-04-20 15:08:58.591972: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1430] function cupti_interface_->EnableCallback( 0 , subscriber_, CUPTI_CB_DOMAIN_DRIVER_API, cbid)failed with error CUPTI_ERROR_INVALID_PARAMETER
+2022-04-20 15:09:23.798076: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: GeForce GTX 980 computeCapability: 5.2
+coreClock: 1.253GHz coreCount: 16 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 208.91GiB/s
+2022-04-20 15:09:23.798902: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties: 
+pciBusID: 0000:82:00.0 name: GeForce GTX 980 computeCapability: 5.2
+coreClock: 1.253GHz coreCount: 16 deviceMemorySize: 3.95GiB deviceMemoryBandwidth: 208.91GiB/s
+2022-04-20 15:09:23.798949: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2022-04-20 15:09:23.798979: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2022-04-20 15:09:23.798996: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2022-04-20 15:09:23.799013: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2022-04-20 15:09:23.799042: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2022-04-20 15:09:23.799059: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2022-04-20 15:09:23.799076: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2022-04-20 15:09:23.801149: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1
+2022-04-20 15:09:23.801231: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-04-20 15:09:23.801254: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 1 
+2022-04-20 15:09:23.801261: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N N 
+2022-04-20 15:09:23.801266: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 1:   N N 
+2022-04-20 15:09:23.802814: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3672 MB memory) -> physical GPU (device: 0, name: GeForce GTX 980, pci bus id: 0000:03:00.0, compute capability: 5.2)
+2022-04-20 15:09:23.803575: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 3672 MB memory) -> physical GPU (device: 1, name: GeForce GTX 980, pci bus id: 0000:82:00.0, compute capability: 5.2)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Layers with arguments in `__init__` must override `get_config`.
+2022-04-20 15:14:47.519739: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2022-04-20 15:14:47.772896: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2022-04-20 15:14:50.506072: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.29GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:50.924120: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.12GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:50.948725: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.71GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:51.089231: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.71GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:51.107348: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.27GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:51.342067: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.12GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:51.839231: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.04GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:51.854194: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.05GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:53.175103: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.09GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:53.602541: W tensorflow/core/common_runtime/bfc_allocator.cc:245] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.08GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2022-04-20 15:14:53.937051: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2022-04-20 15:14:53.937192: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1408] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_NOT_INITIALIZED
+2022-04-20 15:14:53.937217: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1447] function cupti_interface_->ActivityRegisterCallbacks( AllocCuptiActivityBuffer, FreeCuptiActivityBuffer)failed with error CUPTI_ERROR_NOT_INITIALIZED
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/indexed_slices.py:434: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
+2022-04-20 15:20:44.717538: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1430] function cupti_interface_->EnableCallback( 0 , subscriber_, CUPTI_CB_DOMAIN_DRIVER_API, cbid)failed with error CUPTI_ERROR_INVALID_PARAMETER
+2022-04-20 15:20:44.717900: I tensorflow/core/profiler/internal/gpu/device_tracer.cc:216]  GpuTracer has collected 0 callback api events and 0 activity events.
+2022-04-20 15:20:44.720175: I tensorflow/core/profiler/rpc/client/save_profile.cc:168] Creating directory: /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_20_44
+2022-04-20 15:20:44.721055: I tensorflow/core/profiler/rpc/client/save_profile.cc:174] Dumped gzipped tool data for trace.json.gz to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_20_44/9ba671de56ff.trace.json.gz
+2022-04-20 15:20:44.721577: I tensorflow/core/profiler/utils/event_span.cc:288] Generation of step-events took 0.001 ms
+
+2022-04-20 15:20:44.722467: I tensorflow/python/profiler/internal/profiler_wrapper.cc:87] Creating directory: /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_20_44Dumped tool data for overview_page.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_20_44/9ba671de56ff.overview_page.pb
+Dumped tool data for input_pipeline.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_20_44/9ba671de56ff.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_20_44/9ba671de56ff.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_20_44/9ba671de56ff.kernel_stats.pb
+
+2022-04-20 15:22:10.161898: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+2022-04-20 15:22:10.161983: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1408] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_NOT_INITIALIZED
+2022-04-20 15:22:10.162004: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1447] function cupti_interface_->ActivityRegisterCallbacks( AllocCuptiActivityBuffer, FreeCuptiActivityBuffer)failed with error CUPTI_ERROR_NOT_INITIALIZED
+2022-04-20 15:22:11.450716: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1430] function cupti_interface_->EnableCallback( 0 , subscriber_, CUPTI_CB_DOMAIN_DRIVER_API, cbid)failed with error CUPTI_ERROR_INVALID_PARAMETER
+2022-04-20 15:22:11.452470: I tensorflow/core/profiler/internal/gpu/device_tracer.cc:216]  GpuTracer has collected 0 callback api events and 0 activity events.
+2022-04-20 15:22:11.455767: I tensorflow/core/profiler/rpc/client/save_profile.cc:168] Creating directory: /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_22_11
+2022-04-20 15:22:11.457503: I tensorflow/core/profiler/rpc/client/save_profile.cc:174] Dumped gzipped tool data for trace.json.gz to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_22_11/9ba671de56ff.trace.json.gz
+2022-04-20 15:22:11.458205: I tensorflow/core/profiler/utils/event_span.cc:288] Generation of step-events took 0.001 ms
+
+2022-04-20 15:22:11.458547: I tensorflow/python/profiler/internal/profiler_wrapper.cc:87] Creating directory: /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_22_11Dumped tool data for overview_page.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_22_11/9ba671de56ff.overview_page.pb
+Dumped tool data for input_pipeline.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_22_11/9ba671de56ff.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_22_11/9ba671de56ff.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /root/Mask_RCNN/logs/openimages20220420T1508/train/plugins/profile/2022_04_20_15_22_11/9ba671de56ff.kernel_stats.pb
+
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:830: FutureWarning: Input image dtype is bool. Interpolation is not defined with bool data type. Please set order to 0 or explicitely cast input image to another data type. Starting from version 0.19 a ValueError will be raised instead of this warning.
+  order = _validate_interpolation_order(image.dtype, order)
